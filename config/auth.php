@@ -36,9 +36,15 @@ return [
     */
 
     'guards' => [
+
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],
+
+        'apoteker' => [
+            'driver' => 'session',
+            'provider' => 'apotekers',
         ],
     ],
 
@@ -65,10 +71,10 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'apotekers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\ApotekerModel::class,
+        ],
     ],
 
     /*
@@ -90,6 +96,13 @@ return [
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
+        'apotekers' => [
+            'provider' => 'apotekers',
+            'table' => 'password_resets_apotekers',
             'expire' => 60,
             'throttle' => 60,
         ],

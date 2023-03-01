@@ -16,10 +16,27 @@ class PemasokSeeder extends Seeder
     {
         $Pemasok = [
             [
-                'nama_pemasok' => 'Yerokadja',
+                'nama_pemasok' => 'Fismi',
                 'alamat'       => 'Jalan pahlawan no.19',
-                'no_telpon'    => 'no_telpon',
+                'no_telpon'    => '0821578923404',
             ],
+            [
+                'nama_pemasok' => 'jems',
+                'alamat'       => 'Jalan pahlawan no.19',
+                'no_telpon'    => '0821578923404',
+            ],
+            [
+                'nama_pemasok' => 'rocy',
+                'alamat'       => 'Jalan pahlawan no.19',
+                'no_telpon'    => '0821578923404',
+            ],
+            [
+                'nama_pemasok' => 'alcatra',
+                'alamat'       => 'Jalan pahlawan no.19',
+                'no_telpon'    => '0821578923404',
+            ],
+
+
         ];
 
         foreach ($Pemasok as $key => $value) {

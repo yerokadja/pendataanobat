@@ -21,10 +21,10 @@ class CreateObatsTable extends Migration
             $table->foreignId('id_pemasok');
             $table->string('nama_obat');
             $table->string('stock');
-            $table->string('kategori');
+            $table->foreignId('kategori');
             $table->string('penyimpanan');
             $table->string('kadaluarsa');
-            $table->string('unit');
+            $table->foreignId('unit');
             $table->string('deskripsi');
             $table->timestamps();
         });

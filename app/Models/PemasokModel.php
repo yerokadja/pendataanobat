@@ -11,9 +11,9 @@ class PemasokModel extends Model
 
     // protected $guarded;
     protected $keyType = 'string';
-    protected $primaryKey = 'id_pemasok';
+    protected $primaryKey = 'id';
     protected $table = 'pemasoks';
-    protected $fillable = ['nama_pemasok'];
+    protected $fillable = ['nama_pemasok', 'alamat', 'no_telpon'];
 
     /**
      * Get all of the comments for the PemasokModel

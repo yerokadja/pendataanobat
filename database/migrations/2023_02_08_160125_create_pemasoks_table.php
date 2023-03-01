@@ -16,8 +16,8 @@ class CreatePemasoksTable extends Migration
         Schema::create('pemasoks', function (Blueprint $table) {
             $table->id('id');
             $table->string('nama_pemasok');
-            $table->text('alamat');
-            $table->text('no_telpon');
+            $table->string('alamat');
+            $table->string('no_telpon');
             $table->timestamps();
         });
     }

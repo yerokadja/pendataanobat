@@ -6,14 +6,13 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
-use app\Models\User;
 
 class LoginController extends Controller
 {
 
     public function index(Request $request)
     {
-        if (auth::check()) {
+        if (auth::guard('apoteker')->check()) {
             return redirect()->route('/login');
         }
         return view('auth.login', [
@@ -26,25 +25,26 @@ class LoginController extends Controller
     {
         $credentials = $request->validate(
             [
-                'email' => 'required|email:dns',
+                'username' => 'required',
                 'password' => 'required'
             ],
             [
-                'email.required' => 'Email tidak boleh kosong',
+                'username.required' => 'Username tidak boleh kosong',
                 'password.required' => 'Password tidak boleh kosong',
             ]
         );
 
-        if (Auth::attempt($credentials)) {
+
+        if (Auth::guard('apoteker')->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect('/dashboard/admin');
+            return redirect('/dashboard');
         }
-        return redirect()->back()->withInput()->with('error', 'Periksa Kembali Email atau password anda');
+        return redirect()->back()->withInput()->with('error', 'Periksa Kembali Username atau password anda');
     }
 
     public function logout(Request $request)
     {
-        Auth::logout();
+        Auth::guard('apoteker')->logout();
         $request->session()->invalidate();
         return redirect('/login');
     }

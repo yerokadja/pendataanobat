@@ -1,17 +1,21 @@
-<!DOCTYPE html>
-<html lang="en" class="light-style customizer-hide" dir="ltr" data-theme="theme-default"
-    data-assets-path="../assets/" data-template="vertical-menu-template-free">
+<!doctype html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
-    <title>{{ $title }}</title>
+    <link rel="stylesheet" href="/assets/login/fonts/icomoon/style.css">
 
-    <meta name="description" content="" />
+    <link rel="stylesheet" href="/assets/login/css/owl.carousel.min.css">
 
-    <!-- Favicon -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/login/css/bootstrap.min.css">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="/assets/login/css/style.css">
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
@@ -22,19 +26,19 @@
         rel="stylesheet" />
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="/assets/vendor/fonts/boxicons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="../assets/css/demo.css" />
+    <link rel="stylesheet" href="/assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="/assets/css/demo.css" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
     <!-- Page CSS -->
     <!-- Page -->
-    <link rel="stylesheet" href="../assets/vendor/css/pages/page-auth.css" />
+    <link rel="stylesheet" href="/assets/vendor/css/pages/page-auth.css" />
     <!-- Helpers -->
     <script src="../assets/vendor/js/helpers.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
@@ -42,52 +46,65 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
+    <title>{{ $title }}</title>
 </head>
 
 <body>
-    <!-- Content -->
 
-    <div class="container-xxl">
-        <div class="authentication-wrapper authentication-basic container-p-y">
-            <div class="authentication-inner">
-                <!-- Register -->
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="mb-2">Selamat Datang 👋</h4>
-                        <p class="mb-4">Di Sistem Pendataan Obat Puskesmas Bakunase</p>
-                        <form class="mb-3" action="/login" method="POST">
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email or Username</label>
-                                @csrf
-                                <input type="text" class="form-control" id="email" name="email"
-                                    placeholder="Masukan Email" value="{{ old('email') }}" autofocus />
-                                @error('email')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="mb-3 form-password-toggle">
-                                <div class="d-flex justify-content-between">
-                                    <label class="form-label" for="password">Password</label>
-                                    {{-- <a href="auth-forgot-password-basic.html">
-                      <small>Forgot Password?</small>
-                    </a> --}}
-                                </div>
-                                <div class="input-group input-group-merge">
-                                    <input type="password" id="password" class="form-control" name="password"
-                                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                        aria-describedby="Masukan password" />
-                                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                                </div>
-                                @error('password')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
-                            </div>
-                        </form>
-                    </div>
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="../assets/login/images/undraw_remotely_2j6y.png" alt="Image" class="img-fluid">
                 </div>
+                <div class="col-md-6 contents">
+                    <div class="row justify-content-center">
+                        <div class="col-md-5  text-center">
+                            <img src="../assets/login/images/undraw_remotely_2j6y.png" width="75px" height="20px"
+                                alt="Image" class="img-fluid text-center">
+                        </div>
+                        <div class="col-md-8 text-center">
+                            <div class="mb-4">
+                                <h3>Login Administrator</h3>
+                                <p class="mb-4">Aplikasi Pendataan Obat PKM Bakunase</p>
+                            </div>
+                            <form class="mb-3" action="/login" method="POST">
+
+                                <div class="form-group first">
+                                    <label for="username">Username</label>
+                                    @csrf
+                                    <input type="text" class="form-control" id="username" name="username"
+                                        placeholder="Masukan username" value="{{ old('username') }}" autofocus />
+                                    @error('username')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+
+                                </div>
+                                <div class="form-group last mb-4">
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password"
+                                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                        class="form-control" aria-describedby="Masukan password" id="password">
+                                    @error('password')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="d-flex mb-5 align-items-center">
+                                    <label class="control control--checkbox mb-0"><span class="caption">Remember
+                                            me</span>
+                                        <input type="checkbox" checked="checked" />
+                                        <div class="control__indicator"></div>
+                                    </label>
+                                    <!-- <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span>  -->
+                                </div>
+                                <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </div>
@@ -102,14 +119,10 @@
         </script>
     @endif
 
-
-    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../assets/vendor/libs/popper/popper.js"></script>
-    <script src="../assets/vendor/js/bootstrap.js"></script>
-    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="../assets/vendor/js/menu.js"></script>
-    <script src="../assets/js/main.js"></script>
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="../assets/login/js/jquery-3.3.1.min.js"></script>
+    <script src="../assets/login/js/popper.min.js"></script>
+    <script src="../assets/login/js/bootstrap.min.js"></script>
+    <script src="../assets/login/js/main.js"></script>
 </body>
 
 </html>

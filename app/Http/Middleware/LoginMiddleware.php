@@ -18,7 +18,7 @@ class LoginMiddleware
     public function handle(Request $request, Closure $next)
     {
 
-        if (Auth::check()) {
+        if (Auth::guard('apoteker')->check()) {
             return $next($request);
         }
         return redirect('/login')->with('error', 'Akses dibatasi Login terlebih dahulu :)');

@@ -37,5 +37,8 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+        $this->renderable(function (\Illuminate\Database\Eloquent\ModelNotFoundException $e, $request) {
+            return response()->view('errors.404', [], 404);
+        });
     }
 }

@@ -19,6 +19,8 @@ class CreateApotekersTable extends Migration
             $table->string('nama_apoteker');
             $table->string('nim');
             $table->string('alamat');
+            $table->string('username');
+            $table->string('password');
             $table->timestamps();
         });
     }
